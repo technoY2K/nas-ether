@@ -21,4 +21,4 @@ const inputObj = {
   }
 }
 
-module.exports = JSON.parse(solc.compile(JSON.stringify(inputObj))).contracts['Inbox.sol'].Inbox.evm
+module.exports = JSON.parse(solc.compile(JSON.stringify(inputObj))).contracts['Inbox.sol'].Inbox
