@@ -21,6 +21,8 @@ const inputObj = {
   }
 }
 
-const output = JSON.parse(solc.compile(JSON.stringify(inputObj)))
+const output = solc.compile(JSON.stringify(inputObj)))
 
-console.log(output.contracts['Inbox.sol'])
+module.exports = {
+  bytecode: output.contracts['Inbox.sol'].Inbox.evm.bytecode
+}
