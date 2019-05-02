@@ -1,0 +1,16 @@
+{
+  "name": "cardi",
+  "version": "0.0.1",
+  "description": "3ther",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.4.3",
+    "solc": "^0.5.8",
+    "web3": "^1.0.0-beta.53"
+  }
+}
