@@ -10,6 +10,6 @@ beforeEach(async () => {
 
 describe('Inbox.sol test', () => {
   test('accounts variable should be an array', () => {
-    expect(Array.isArray([])).toBe(true)
+    expect(Array.isArray(accounts)).toBe(true)
   })
 })
