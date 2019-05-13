@@ -6,16 +6,21 @@ const { abi, evm: {bytecode} } = require('../compile')
 let accounts;
 let inbox;
 
-beforeEach(async () => {
+beforeEach(async (done) => {
   accounts = await w3.eth.getAccounts()
-  inbox    = await new w3.eth.Contract(abi, accounts[0])
+  inbox    = await new w3.eth.Contract(abi)
+    .deploy({data: '0x' + bytecode.object, arguments: ['Sandstorm']})
+    .send({from: accounts[0], gas: '1000000'})
+  done()
 })
 
 describe('Inbox.sol test', () => {
   test('accounts variable should be an array', () => {
     expect(Array.isArray(accounts)).toBe(true)
   })
-  test('contract should have an address', () => {
-    expect(typeof inbox.address).toBe('string')
+  test('initial message', async (done) => {
+    const message = await inbox.methods.message().call()
+    expect(message).toEqual('Sandstorm')
+    done()
   })
 })
