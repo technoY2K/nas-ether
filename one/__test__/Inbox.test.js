@@ -13,6 +13,9 @@ beforeEach(async () => {
 
 describe('Inbox.sol test', () => {
   test('accounts variable should be an array', () => {
-    console.log(inbox)
+    expect(Array.isArray(accounts)).toBe(true)
+  })
+  test('contract should have an address', () => {
+    expect(typeof inbox.address).toBe('string')
   })
 })
