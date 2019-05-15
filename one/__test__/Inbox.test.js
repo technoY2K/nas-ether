@@ -18,9 +18,17 @@ describe('Inbox.sol test', () => {
   test('accounts variable should be an array', () => {
     expect(Array.isArray(accounts)).toBe(true)
   })
-  test('initial message', async (done) => {
+
+  test('initial message is set', async (done) => {
     const message = await inbox.methods.message().call()
     expect(message).toEqual('Sandstorm')
+    done()
+  })
+
+  test('can update message', async (done) => {
+    await inbox.methods.setMessage('Feel the beat').send({from: accounts[0]})
+    const message = await inbox.methods.message().call()
+    expect(message).toEqual('Feel the beat')
     done()
   })
 })
