@@ -9,6 +9,7 @@
     "test": "jest --detectOpenHandles"
   },
   "devDependencies": {
+    "dotenv": "^8.0.0",
     "jest": "^24.7.1"
   },
   "dependencies": {
