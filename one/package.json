@@ -10,10 +10,11 @@
   },
   "devDependencies": {
     "dotenv": "^8.0.0",
-    "jest": "^24.8.0"
+    "jest": "^24.7.1"
   },
   "dependencies": {
     "ganache-cli": "^6.4.3",
-    "solc": "^0.5.8"
+    "solc": "^0.5.8",
+    "web3": "^1.0.0-beta.37"
   }
 }
