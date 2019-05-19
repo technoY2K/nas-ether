@@ -1,14 +1,14 @@
 const ganache = require('ganache-cli')
 const Web3    = require('web3')
-const w3      = new Web3(ganache.provider())
+const web3    = new Web3(ganache.provider())
 const {abi, evm: {bytecode}} = require('../compile')
 
 let accounts;
 let inbox;
 
 beforeEach(async (done) => {
-  accounts = await w3.eth.getAccounts()
-  inbox    = await new w3.eth.Contract(abi)
+  accounts = await web3.eth.getAccounts()
+  inbox    = await new web3.eth.Contract(abi)
     .deploy({data: '0x' + bytecode.object, arguments: ['Sandstorm']})
     .send({from: accounts[0], gas: '1000000'})
   done()

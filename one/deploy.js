@@ -14,7 +14,7 @@ const deploy = async () => {
   const accounts = await web3.eth.getAccounts()
   console.log(accounts)
 
-  const result = await new w3.eth.Contract(abi)
+  const result = await new web3.eth.Contract(abi)
    .deploy({data: '0x' + bytecode.object, arguments: ['Sandstorm']})
    .send({from: accounts[0], gas: '1000000'})
 
